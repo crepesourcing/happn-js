@@ -13,7 +13,7 @@
   "dependencies": {
     "amqplib": ">=0.5.1",
     "coffee-script": ">=1.12.3",
-    "q": ">=1.4.1",
+    "q": ">=1.4.1"
   },
   "keywords": [
     "event",
