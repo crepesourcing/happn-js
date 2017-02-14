@@ -1,0 +1,29 @@
+{
+  "name": "happn-js",
+  "version": "0.0.1",
+  "description": "Consume flu events through RabbitMQ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/crepesourcing/happn-js.git"
+  },
+  "dependencies": {
+    "amqplib": ">=0.5.1",
+    "coffee-script": ">=1.12.3",
+    "q": ">=1.4.1",
+  }
+  "keywords": [
+    "event",
+    "sourcing",
+    "flu"
+  ],
+  "author": "Lorent Lempereur, Thibault Poncelet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crepesourcing/happn-js/issues"
+  },
+  "homepage": "https://github.com/crepesourcing/happn-js#readme"
+}
