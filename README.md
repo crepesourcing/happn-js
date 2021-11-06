@@ -113,6 +113,7 @@ All options have a default value. However, all options can be overridden by sett
 
 | Option | Default Value | Type | Required? | Description  | Example |
 | ---- | ----- | ------ | ----- | ------ | ----- |
+| `RABBITMQ_SCHEME` | `"amqp"` | String | Required | Scheme to contact RabbitMQ's host. | `"amqps"` |
 | `RABBITMQ_HOST` | `"localhost"` | String | Required | RabbitMQ exchange's host. | `"192.168.42.42"` |
 | `RABBITMQ_PORT` | `5672` | Integer | Required | RabbitMQ exchange's port. | `1234` |
 | `RABBITMQ_USER` | `""` | String | Required | RabbitMQ exchange's username. | `"root"` |
