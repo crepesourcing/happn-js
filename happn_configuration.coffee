@@ -12,6 +12,6 @@ class HappnConfiguration
       prefetchSize: 10
 
   rabbitMqUrl: ->
-    "#{rabbitMq.scheme}://#{@rabbitMq.user}:#{@rabbitMq.password}@#{@rabbitMq.host}:#{@rabbitMq.port}"
+    "#{@rabbitMq.scheme}://#{@rabbitMq.user}:#{@rabbitMq.password}@#{@rabbitMq.host}:#{@rabbitMq.port}"
 
 module.exports = HappnConfiguration
