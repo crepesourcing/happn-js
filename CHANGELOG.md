@@ -13,7 +13,7 @@ First release published on npm, as `@crepesourcing/happn`.
 ### Changed
 
 * Upgrade `amqplib` to `^2.2.0`.
-* Replace the deprecated `coffee-script` package with `coffeescript` (`^2.7.0`).
+* Ship precompiled JavaScript (`dist/`) built with `npm run build`: CoffeeScript is no longer compiled at runtime nor installed with the package. The deprecated `coffee-script` package is replaced with `coffeescript` (`^2.7.0`) as a development dependency.
 * Remove the deprecated `q` dependency in favor of native Promises.
 
 ### Added

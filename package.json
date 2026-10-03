@@ -2,17 +2,18 @@
   "name": "@crepesourcing/happn",
   "version": "1.0.0",
   "description": "Consume flu events through RabbitMQ",
-  "main": "main.js",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "coffee --compile --output dist *.coffee",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/crepesourcing/happn-js.git"
   },
   "dependencies": {
-    "amqplib": "^2.2.0",
-    "coffeescript": "^2.7.0"
+    "amqplib": "^2.2.0"
   },
   "engines": {
     "node": ">=24"
@@ -27,5 +28,15 @@
   "bugs": {
     "url": "https://github.com/crepesourcing/happn-js/issues"
   },
-  "homepage": "https://github.com/crepesourcing/happn-js#readme"
+  "homepage": "https://github.com/crepesourcing/happn-js#readme",
+  "devDependencies": {
+    "coffeescript": "^2.7.0"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

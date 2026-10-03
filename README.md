@@ -58,36 +58,23 @@ A projector is an object that defines how to consume one or multiple types of ev
 * use its `on` method to declare _which_ events to match and _how_ to consume them. This must be done in a `defineHandlers` method.
 
 ```js
-var LoggerProjector;
-var extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-var hasProp = {}.hasOwnProperty;
+const { Projector } = require("@crepesourcing/happn");
 
-Projector = require("@crepesourcing/happn").Projector;
-
-LoggerProjector = (function(superClass) {
-  extend(MessageProjector, superClass);
-
-  function MessageProjector() {
+class LoggerProjector extends Projector {
+  name() {
+    return "LoggerProjector";
   }
 
-  LoggerProjector.prototype.name = function() {
-    return "LoggerProjector";
-  };
+  defineHandlers() {
+    this.on("MyApplication", "all", "create country", "new", (event) => {
+      console.log("A country has been created and generated an event with id " + event.id());
+    });
 
-  LoggerProjector.prototype.defineHandlers = function() {
-    this.on("MyApplication", "all", "create country", "new", (function(_this) {
-      return function(event) {
-        console.log("A country has been created and generated an event with id " + event.id);
-      };
-    })(this));
-
-    this.on("Api", "request", "all", "new", (function(_this) {
-      return function(event) {
-        console.log("This is a new request to the controller " + event.data["controller_name"]);
-      };
-    })(this));
-  };
-})(Projector);
+    this.on("Api", "request", "all", "new", (event) => {
+      console.log("This is a new request to the controller " + event.data["controller_name"]);
+    });
+  }
+}
 ```
 
 The same projector written in Coffeescript:
@@ -95,14 +82,12 @@ The same projector written in Coffeescript:
 Projector = require("@crepesourcing/happn").Projector
 
 class LoggerProjector extends Projector
-  constructor: ->
-
   name: ->
     "LoggerProjector"
 
   defineHandlers: ->
     @on "MyApplication", "all", "create country", "new", (event) =>
-      console.log("A country has been created and generated an event with id #{event.id}")
+      console.log("A country has been created and generated an event with id #{event.id()}")
 
     @on "Api", "request", "all", "new", (event) =>
       console.log("This is a new request to the controller #{event.data["controller_name"]}")
