@@ -108,3 +108,28 @@ All options have a default value. However, all options can be overridden by sett
 | `RABBITMQ_QUEUE_NAME` | `"happn-queue"` | String | Required | The RabbitMQ queue to create, bind and consume. If the queue does not exist, it will be created at startup. | `"my-queue"` |
 | `RABBITMQ_QUEUE_DURABLE` | `true` | Boolean | Optional | Make the RabbitMQ's exchange durable or not. From RabbitMQ's [documentation](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges): _"Durable exchanges survive broker restart whereas transient exchanges do not (they have to be redeclared when broker comes back online)."_ | `false` |
 
+## Development
+
+Sources are written in CoffeeScript and compiled to JavaScript in `dist/`, which is the only code published to npm.
+
+```shell
+$ nvm use
+$ npm ci
+$ npm run build
+```
+
+## Release
+
+Releases are published to npm by GitHub Actions ([`.github/workflows/release.yml`](.github/workflows/release.yml)), only when a `vX.Y.Z` tag is pushed. Pushing a branch never publishes anything.
+
+1. Describe the changes in [`CHANGELOG.md`](CHANGELOG.md) and commit them (`npm version` requires a clean working tree).
+2. Bump the version, which creates the commit and the matching tag:
+   ```shell
+   $ npm version <patch|minor|major>
+   ```
+3. Push the commit and the tag:
+   ```shell
+   $ git push --follow-tags
+   ```
+
+The published version is the one from `package.json`, so always create tags with `npm version`.

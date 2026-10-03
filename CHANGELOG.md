@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1
+
+### Changed
+
+* Document the build and the tag-based npm release in the README.
+* First release published from GitHub Actions with npm provenance.
+
 ## 1.0.0
 
 First release published on npm, as `@crepesourcing/happn`.
