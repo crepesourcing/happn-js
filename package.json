@@ -1,6 +1,6 @@
 {
-  "name": "happn",
-  "version": "0.0.2",
+  "name": "@crepesourcing/happn",
+  "version": "1.0.0",
   "description": "Consume flu events through RabbitMQ",
   "main": "main.js",
   "scripts": {
@@ -11,9 +11,11 @@
     "url": "git+ssh://git@github.com/crepesourcing/happn-js.git"
   },
   "dependencies": {
-    "amqplib": ">=0.8.0",
-    "coffee-script": ">=1.12.3",
-    "q": ">=1.4.1"
+    "amqplib": "^2.2.0",
+    "coffeescript": "^2.7.0"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "keywords": [
     "event",

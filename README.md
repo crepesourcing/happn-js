@@ -7,13 +7,14 @@ This gem connects a single RabbitMQ queue and bind it automatically to its excha
 
 ## Requirements
 
+* Node.js >= 24
 * Tested with RabbitMQ 3.5.8
 
 ## Installation
 
 Using npm:
 ```shell
-$ npm install --save git+https://github.com/crepesourcing/happn-js.git
+$ npm install --save @crepesourcing/happn
 ```
 
 ## About queues
@@ -40,7 +41,7 @@ When a projector throws an Exception, `Happn` stops.
 ### Start Up
 
 ```js
-Happn = require("happn").Happn
+Happn = require("@crepesourcing/happn").Happn
 var happn = new Happn(logger)
 var projectors = [...]; // the projector you've created
 happn.init(projectors);
@@ -61,7 +62,7 @@ var LoggerProjector;
 var extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
 var hasProp = {}.hasOwnProperty;
 
-Projector = require("happn").Projector;
+Projector = require("@crepesourcing/happn").Projector;
 
 LoggerProjector = (function(superClass) {
   extend(MessageProjector, superClass);
@@ -91,7 +92,7 @@ LoggerProjector = (function(superClass) {
 
 The same projector written in Coffeescript:
 ```coffeescript
-Projector = require("happn").Projector
+Projector = require("@crepesourcing/happn").Projector
 
 class LoggerProjector extends Projector
   constructor: ->

@@ -1,6 +1,5 @@
 amqp  = require "amqplib"
 Event = require "./event"
-Q     = require "q"
 
 class EventConsumer
   constructor: (@logger, @configuration, @subscriptionRepository) ->
@@ -31,7 +30,7 @@ class EventConsumer
     url = @configuration.rabbitMqUrl()
     amqp.connect(url).catch (err) =>
       @logger.warn "Can't connect to #{url}, try again in 1 second."
-      Q.delay(1000).then =>
+      new Promise((resolve) -> setTimeout(resolve, 1000)).then =>
         @_createConnectionWithRetry()
 
 
